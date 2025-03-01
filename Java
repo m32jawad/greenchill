@@ -1,0 +1,65 @@
+let chatOutput = document.getElementById('chatOutput');
+let userResponse = document.getElementById('userResponse');
+let userInfoForm = document.getElementById('userInfoForm');
+let acknowledgmentMessage = document.getElementById('acknowledgmentMessage');
+let step = 0; // Track conversation step
+
+// Initial chat message to welcome the user
+function startChat() {
+    displayMessage("Welcome to [Your Business Name]! Would you like to leave an honest review and get a free Naan bread on your next order?");
+}
+
+// Display messages in chat
+function displayMessage(message, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.textContent = message;
+    if (isUser) {
+        messageDiv.style.textAlign = 'right'; // User messages aligned to the right
+    }
+    chatOutput.appendChild(messageDiv);
+    chatOutput.scrollTop = chatOutput.scrollHeight; // Scroll to the bottom
+}
+
+// Handle user input and conversation flow
+function handleResponse() {
+    const response = userResponse.value.trim();
+    displayMessage(response, true); // Display user response in chat
+    userResponse.value = ''; // Clear the input field
+
+    if (step === 0) {
+        // Step 0: Ask for review
+        if (response.toLowerCase() === 'yes' || response.toLowerCase() === 'yeah') {
+            step = 1;
+            displayMessage("Great! Would you like to leave your review on Google or Facebook?");
+        } else if (response.toLowerCase() === 'no') {
+            step = 3;
+            displayMessage("No worries! Thank you for your time.");
+        } else {
+            displayMessage("Please answer with 'Yes' or 'No'.");
+        }
+    } else if (step === 1) {
+        // Step 1: Ask where to leave the review
+        if (response.toLowerCase() === 'google') {
+            step = 2;
+            displayMessage("Awesome! Please submit your review screenshot.");
+            userInfoForm.classList.remove('hidden');
+        } else if (response.toLowerCase() === 'facebook') {
+            step = 2;
+            displayMessage("Awesome! Please submit your review screenshot.");
+            userInfoForm.classList.remove('hidden');
+        } else {
+            displayMessage("Please answer with 'Google' or 'Facebook'.");
+        }
+    } else if (step === 2) {
+        // Step 2: Submit review form (user provides name, email, screenshot)
+        displayMessage("Thank you for submitting your review! We'll send your reward soon.");
+        acknowledgmentMessage.classList.remove('hidden');
+        userInfoForm.classList.add('hidden');
+    } else if (step === 3) {
+        // Step 3: Thank user for their response (no review)
+        displayMessage("Thank you for your response. We hope to serve you again soon!");
+    }
+}
+
+// Start the conversation when the page loads
+startChat();

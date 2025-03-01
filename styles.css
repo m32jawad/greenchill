@@ -1,0 +1,248 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#chat-container {
+    width: 400px;
+    max-width: 90%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#chat-header {
+    background: #28A745;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #E4E6EB;
+    max-height: 400px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✨ Make Chat Messages Bigger */
+.chat-message {
+    font-size: 18px; /* Increases text size inside bubbles */
+    padding: 15px 20px; /* Adds more space around text */
+    max-width: 80%; /* Makes bubbles wider */
+}
+
+@keyframes messageFade {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ Make Bot Messages Bigger */
+.bot-message {
+    border-radius: 20px; /* More rounded corners */
+    background: #fff; /* Keeps it white */
+    color: #000; /* Text stays black */
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.15); /* Adds a soft shadow */
+}
+
+
+/* ✨ Make User Messages Bigger */
+.user-message {
+    font-size: 18px; /* Bigger text */
+    padding: 15px 20px; /* More space inside */
+    border-radius: 20px; /* Keeps the rounded look */
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* ✨ Make Buttons Bigger */
+.chat-button {
+    font-size: 18px; /* Larger text */
+    padding: 12px 18px; /* More space around text */
+    border-radius: 25px; /* Smooth rounded look */
+}
+
+
+/* Go Back Button - Less distracting */
+#go-back-button {
+    background: #d3d3d3; /* Light gray color */
+    color: #333; /* Dark gray text */
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+#go-back-button:hover {
+    background: #b0b0b0; /* Slightly darker gray on hover */
+}
+
+.chat-button:hover {
+    background: #218838;
+}
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.file-input {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Make input field bigger */
+#user-input {
+    font-size: 18px;
+    padding: 12px;
+    width: 90%;
+    max-width: 350px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    display: none; /* Hidden by default */
+}
+
+/* Button styling */
+#send-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #28A745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+
+#send-button:hover {
+    background: #218838;
+}
+
+#start-button {
+    background-color: #28A745;  /* Green */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+#start-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Landing Page Title Styling */
+#landing-title {
+    font-size: 24px; /* Increase font size */
+    font-weight: bold; /* Make it bold */
+    text-align: center; /* Center the text */
+    color: white; /* Keep text white */
+    line-height: 1.4; /* Adjust spacing between lines */
+    padding: 20px; /* Add more space inside */
+}
+
+/* Add space between lines */
+#landing-title span {
+    display: block; /* Makes each line separate */
+    margin-bottom: 10px; /* Adds space between lines */
+}
+
+
+@keyframes bounceIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.typing-indicator {
+    display: none;
+    font-size: 14px;
+    color: gray;
+    padding: 10px;
+    font-style: italic;
+}
+
+/* Spinner Animation */
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px auto;
+    width: 120px;
+    animation: spinAnimation 1s linear infinite;
+}
+
+/* Spinning Animation */
+@keyframes spinAnimation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Reward Message */
+.reward-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4CAF50;
+    background: #f8f8f8;
+    padding: 15px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px auto;
+    width: fit-content;
+    max-width: 80%;
+}

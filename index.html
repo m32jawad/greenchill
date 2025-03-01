@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Chilli - Leave a Review and Get Rewarded!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="chat-container">
+        <!-- Logo Above the Chatbot -->
+        <img src=https://raw.githubusercontent.com/jsmyth583/username.github.io/refs/heads/main/312918238_822395675752804_8938890558544258742_n%20(2).jpg>
+        
+        <div id="chat-header">
+    <span class="header-line">Thanks For Ordering!</span><br>
+    <span class="header-line">Leave A Review & Spin To Win A Tasty Reward!</span>
+</div>
+
+       
+ <button id="start-button" onclick="startChat()">Start</button>
+        <div id="chat-box" style="display: none;"></div>
+        <div class="clearfix"></div>
+        <input type="text" id="user-input" placeholder="Type here..." onkeypress="if(event.key === 'Enter') sendMessage()" style="display: none;">
+        <button id="send-button" onclick="sendMessage()" style="display: none;">Send</button>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
+
